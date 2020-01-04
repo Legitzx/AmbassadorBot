@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Made By: Luciano Kholos -->
+<html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145041207-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-145041207-1');
+  </script>
+
+  <title>DBTI Ambassador Form</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<form method="post" action="connect.php">
+  <div class="container">
+    <h1>DBTI Ambassador Validation</h1>
+    <p>Please fill in this form to to get roles in the Discord.</p>
+    <hr>
+
+    <label for="fullName"><b>Full Name</b></label>
+    <input type="text" placeholder="Enter Full Name" name="name" maxlength="50" required>
+
+    <label for="teamNumber"><b>Team Number</b></label>
+    <input type="text" placeholder="Enter Team #" name="team" pattern="[0-9]" required>
+
+    <label for="gradeLevel"><b>Grade</b></label>
+    <input type="text" placeholder="Enter Grade Level(09, 10, 11, 12)" name="grade" pattern="[0-9]{2}" required>
+
+    <label for="schoolID"><b>ID Number</b></label>
+    <input type="text" placeholder="Enter Bosco ID" name="id" pattern="[0-9]{6}" required>
+
+    <label for="discordID"><b>Discord ID(Do not touch)</b></label>
+    <input id="z" type="text" placeholder="Enter Discord ID" name="discordid" value="asdasds" pattern="[0-9]{18}" required>
+    <hr>
+
+    <p>Ambassador Information Table: <a href="/table.php">View</a></p>
+    <button type="submit" class="registerbtn">Submit</button>
+  </div>
+
+  <div class="container signin">
+    <p>Having Issues? DM a Leader via Discord.</p>
+  </div>
+</form>
+
+<script>
+  var url = document.URL
+  var discordID = ''
+  var discordVer = false
+  for(x = 0; x < url.length; x++) {
+    if(url[x] === '=') {
+      discordVer = true
+    }
+    if(discordVer) {
+      discordID += url[x]
+    }
+  }
+  document.getElementById('z').value = discordID.substring(1);
+</script>
+
+
+?>
+</html>
